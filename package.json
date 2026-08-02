@@ -1,0 +1,14 @@
+{
+  "name": "mcp-servers",
+  "version": "1.0.0",
+  "description": "Monorepo for MCP Servers",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r run dev",
+    "build": "pnpm -r run build",
+    "inspector": "npx @modelcontextprotocol/inspector npx tsx apps/github-mcp/src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
