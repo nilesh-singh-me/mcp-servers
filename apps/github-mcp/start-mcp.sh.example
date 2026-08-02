@@ -1,0 +1,20 @@
+#!/bin/bash
+# Copy this file to start-mcp.sh and update the paths for your machine:
+#   cp start-mcp.sh.example start-mcp.sh
+#   chmod +x start-mcp.sh
+#
+# Then configure your IDE's mcp_config.json:
+#   {
+#     "mcpServers": {
+#       "github-mcp": {
+#         "command": "/bin/bash",
+#         "args": ["<path-to-this-repo>/apps/github-mcp/start-mcp.sh"],
+#         "env": {
+#           "GITHUB_TOKEN": "<your-github-token>"
+#         }
+#       }
+#     }
+#   }
+
+cd "$(dirname "$0")"
+exec npx tsx src/index.ts
