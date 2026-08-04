@@ -29,17 +29,18 @@ To use this MCP server within the Antigravity IDE, you need to add it to your gl
 
 ```json
 {
-  "mcpServers": {
-    "github-mcp": {
-      "command": "<absolute-path-to-this-repo>/apps/github-mcp/node_modules/.bin/tsx",
-      "args": [
-        "<absolute-path-to-this-repo>/apps/github-mcp/src/index.ts"
-      ],
-      "env": {
-        "GITHUB_TOKEN": "<your_personal_access_token_here>"
-      }
+    "mcpServers": {
+        "github-mcp": {
+            "command": "npx",
+            "args": [
+                "tsx",
+                "/mnt/UbuntuDataDisk/nilesh/Project/mcp-servers/apps/github-mcp/src/index.ts"
+            ],
+            "env": {
+                "GITHUB_TOKEN": "<your_personal_access_token_here>"
+            }
+        }
     }
-  }
 }
 ```
 3. Save the file and reload the IDE window for the tools to become available.
@@ -67,6 +68,27 @@ pnpm run inspector
 3. Click the **Connect** button in the top right corner.
 4. You will see a list of tools (like `listRepositories`, `getRepository`, etc.).
 5. Click on a tool, enter the arguments (e.g., `nilesh-singh-me` for the `owner` field), and click **Run Tool** to see the live data fetched from GitHub!
+
+## Available Tools
+
+The server currently provides the following tools:
+
+- `listRepositories`: List repositories for a GitHub user or organization.
+- `getRepository`: Get details of a specific GitHub repository.
+- `listPullRequests`: List pull requests for a specific GitHub repository.
+- `createIssue`: Create a new issue in a GitHub repository.
+- `getFile`: Get the contents of a specific file in a GitHub repository.
+- `getPullRequest`: Fetch details of a specific pull request (description, mergeability, status).
+- `createPullRequest`: Open a new pull request automatically.
+- `listPullRequestFiles`: See which files were modified in a pull request.
+- `createPullRequestReview`: Leave code review comments on specific lines or approve PRs.
+- `mergePullRequest`: Automatically merge a pull request.
+- `searchCode`: Search for specific functions or variables across the entire repository.
+- `createOrUpdateFile`: Commit small fixes or create new files directly via the GitHub API.
+- `deleteFile`: Delete a file directly via the GitHub API.
+- `listBranches`: See all available branches in a repository.
+- `createBranch`: Create a new branch (e.g., fix/typo-in-readme) to isolate work.
+- `listCommits`: Fetch the commit history of a branch to understand recent changes.
 
 ## Project Structure
 
