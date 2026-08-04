@@ -39,6 +39,17 @@ To use this MCP server within the Antigravity IDE, you need to add it to your gl
             "env": {
                 "GITHUB_TOKEN": "<your_personal_access_token_here>"
             }
+        },
+        "mongodb-mcp": {
+            "command": "npx",
+            "args": [
+                "tsx",
+                "/mnt/UbuntuDataDisk/nilesh/Project/mcp-servers/apps/mongodb-mcp/src/index.ts"
+            ],
+            "env": {
+                "MONGODB_URI": "mongodb://localhost:27017",
+                "MONGODB_ALLOW_MUTATIONS": "false"
+            }
         }
     }
 }
