@@ -44,6 +44,18 @@ github-mcp/
 │   │     listPullRequests.ts
 │   │     createIssue.ts
 │   │     getFile.ts
+│   │     getPullRequest.ts
+│   │     createPullRequest.ts
+│   │     listPullRequestFiles.ts
+│   │     createPullRequestReview.ts
+│   │     mergePullRequest.ts
+│   │     searchCode.ts
+│   │     createOrUpdateFile.ts
+│   │     deleteFile.ts
+│   │     listBranches.ts
+│   │     createBranch.ts
+│   │     listCommits.ts
+│   │     getCommit.ts
 │   └── types.ts
 │
 ├── .env.example
@@ -76,7 +88,7 @@ While writing the code, explain:
 Explain every concept before writing code.
 
 ----------------------------------------------------
-Implement only these tools
+Implement the following tools
 ----------------------------------------------------
 
 1. listRepositories
@@ -150,6 +162,184 @@ Input
 }
 
 Returns decoded file contents.
+
+----------------------------------------------------
+
+6. getPullRequest
+
+Input
+
+{
+  "owner": "...",
+  "repo": "...",
+  "pull_number": 1
+}
+
+Returns details of a specific Pull Request.
+
+----------------------------------------------------
+
+7. createPullRequest
+
+Input
+
+{
+  "owner": "...",
+  "repo": "...",
+  "title": "...",
+  "head": "...",
+  "base": "..."
+}
+
+Creates a pull request and returns its details.
+
+----------------------------------------------------
+
+8. listPullRequestFiles
+
+Input
+
+{
+  "owner": "...",
+  "repo": "...",
+  "pull_number": 1
+}
+
+Returns the list of files modified in the PR.
+
+----------------------------------------------------
+
+9. createPullRequestReview
+
+Input
+
+{
+  "owner": "...",
+  "repo": "...",
+  "pull_number": 1,
+  "body": "...",
+  "event": "APPROVE",
+  "comments": []
+}
+
+Creates a pull request review.
+
+----------------------------------------------------
+
+10. mergePullRequest
+
+Input
+
+{
+  "owner": "...",
+  "repo": "...",
+  "pull_number": 1,
+  "merge_method": "merge"
+}
+
+Merges the pull request.
+
+----------------------------------------------------
+
+11. searchCode
+
+Input
+
+{
+  "q": "..."
+}
+
+Searches for code across repositories.
+
+----------------------------------------------------
+
+12. createOrUpdateFile
+
+Input
+
+{
+  "owner": "...",
+  "repo": "...",
+  "path": "...",
+  "message": "...",
+  "content": "...",
+  "sha": "...",
+  "branch": "..."
+}
+
+Creates or updates a file directly via the GitHub API.
+
+----------------------------------------------------
+
+13. deleteFile
+
+Input
+
+{
+  "owner": "...",
+  "repo": "...",
+  "path": "...",
+  "message": "...",
+  "sha": "...",
+  "branch": "..."
+}
+
+Deletes a file directly via the GitHub API.
+
+----------------------------------------------------
+
+14. listBranches
+
+Input
+
+{
+  "owner": "...",
+  "repo": "..."
+}
+
+Returns a list of branches.
+
+----------------------------------------------------
+
+15. createBranch
+
+Input
+
+{
+  "owner": "...",
+  "repo": "...",
+  "branch": "...",
+  "sha": "..."
+}
+
+Creates a new branch.
+
+----------------------------------------------------
+
+16. listCommits
+
+Input
+
+{
+  "owner": "...",
+  "repo": "..."
+}
+
+Returns a list of commits for a branch.
+
+----------------------------------------------------
+
+17. getCommit
+
+Input
+
+{
+  "owner": "...",
+  "repo": "...",
+  "ref": "..."
+}
+
+Returns details of a specific commit including file changes.
 
 ----------------------------------------------------
 Validation
