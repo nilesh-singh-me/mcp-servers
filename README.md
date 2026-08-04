@@ -20,6 +20,30 @@ This repository is a monorepo for Model Context Protocol (MCP) servers, using `p
    ```
    Open the `.env` file and replace `your_personal_access_token_here` with your actual GitHub PAT. You can generate one from your [GitHub Developer Settings](https://github.com/settings/tokens). Make sure it has `repo` access.
 
+## Configuring with Antigravity IDE
+
+To use this MCP server within the Antigravity IDE, you need to add it to your global MCP configuration file.
+
+1. Open the file `~/.gemini/config/mcp_config.json` (or `/home/<your-user>/.gemini/config/mcp_config.json`).
+2. Add the `github-mcp` configuration inside the `mcpServers` block:
+
+```json
+{
+  "mcpServers": {
+    "github-mcp": {
+      "command": "<absolute-path-to-this-repo>/apps/github-mcp/node_modules/.bin/tsx",
+      "args": [
+        "<absolute-path-to-this-repo>/apps/github-mcp/src/index.ts"
+      ],
+      "env": {
+        "GITHUB_TOKEN": "<your_personal_access_token_here>"
+      }
+    }
+  }
+}
+```
+3. Save the file and reload the IDE window for the tools to become available.
+
 ## Running the Server
 
 You can run the server directly (it will run on `stdio` and wait for JSON-RPC messages):
